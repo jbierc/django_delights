@@ -1,20 +1,28 @@
 from datetime import datetime
+from tkinter import CASCADE
 from django.db import models
 
-# Create your models here.
 class Ingredient(models.Model):
+    TEASPOON = "tsp"
+    TABLESPOON = "tbsp"
+    GRAMS = "g"
+    KILOGRAMS = "kg"
+    UNIT_TYPE_CHOICES = [(TEASPOON, "teaspoon"), (TABLESPOON, "tablespoon"), (GRAMS, "grams"), (KILOGRAMS, "kilograms")]
     name = models.CharField(max_length=30)
-    quantity = models.IntegerField(default=0)
-    price = models.IntegerField(default=0)
+    quantity = models.FloatField(default=0.0)
+    unit = models.CharField(max_length=4, choices=UNIT_TYPE_CHOICES, default=GRAMS)
+    unit_price = models.FloatField(default=0.0)
 
 class MenuItem(models.Model):
     name = models.CharField(max_length=30)
-    price = models.IntegerField(default=0)
+    price = models.FloatField(default=0)
     ingredients = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
 
 class RecipeRequirements(models.Model):
-    ingredients_list = models.ForeignKey(MenuItem.ingredients, on_delete=models.CASCADE)
+    menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+    quantity = models.FloatField(default=0.0)
 
 class Purchase(models.Model):
-    name = models.CharField(max_length=30)
-    date = models.DateField(default=datetime.date.today)
+    menu_item = models.ForeignKey(MenuItem, on_delete=CASCADE)
+    timestamp = models.DateTimeField(default=datetime.date.today)
