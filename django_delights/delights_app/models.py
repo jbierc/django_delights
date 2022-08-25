@@ -24,5 +24,5 @@ class RecipeRequirements(models.Model):
     quantity = models.FloatField(default=0.0)
 
 class Purchase(models.Model):
-    menu_item = models.ForeignKey(MenuItem, on_delete=CASCADE)
-    timestamp = models.DateTimeField(default=datetime.date.today)
+    menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
+    timestamp = models.DateTimeField(default=datetime.now)
