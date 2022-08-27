@@ -7,7 +7,8 @@ class Ingredient(models.Model):
     TABLESPOON = "tbsp"
     GRAMS = "g"
     KILOGRAMS = "kg"
-    UNIT_TYPE_CHOICES = [(TEASPOON, "teaspoon"), (TABLESPOON, "tablespoon"), (GRAMS, "grams"), (KILOGRAMS, "kilograms")]
+    EGGS = "eggs"
+    UNIT_TYPE_CHOICES = [(TEASPOON, "teaspoon"), (TABLESPOON, "tablespoon"), (GRAMS, "grams"), (KILOGRAMS, "kilograms"), (EGGS, "eggs")]
     name = models.CharField(max_length=30)
     quantity = models.FloatField(default=0.0)
     unit = models.CharField(max_length=4, choices=UNIT_TYPE_CHOICES, default=GRAMS)
