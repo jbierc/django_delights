@@ -16,7 +16,7 @@ class Ingredient(models.Model):
 
 class MenuItem(models.Model):
     name = models.CharField(max_length=30)
-    price = models.FloatField(default=0)
+    price = models.FloatField(default=0.0)
     ingredients = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
 
 class RecipeRequirements(models.Model):
