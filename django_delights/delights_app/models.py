@@ -13,11 +13,15 @@ class Ingredient(models.Model):
     quantity = models.FloatField(default=0.0)
     unit = models.CharField(max_length=4, choices=UNIT_TYPE_CHOICES, default=GRAMS)
     unit_price = models.FloatField(default=0.0)
+    def __str__(self):
+        return self.name
 
 class MenuItem(models.Model):
     name = models.CharField(max_length=30)
     price = models.FloatField(default=0.0)
     ingredients = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
 
 class RecipeRequirements(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
