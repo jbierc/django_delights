@@ -1,0 +1,10 @@
+{% load static%}
+
+<h1>Django Delights</h1>
+
+{% if user.username %}
+  <a href="{% url 'logout' %}">logout</a>
+{% endif %}
+
+{% block content %}
+{% endblock %}
