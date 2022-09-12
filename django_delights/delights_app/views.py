@@ -23,4 +23,5 @@ def logout_request(request):
   logout(request)
   return redirect("home")
 
-
+class IngredientList(LoginRequiredMixin, ListView):
+  model = Ingredient
