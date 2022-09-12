@@ -5,6 +5,8 @@
 
 {% if user.username %}
 <h4>Welcome {{ user.username }}</h4>
+<a href="{% url 'ingredientlist' %}">Ingredients</a>
+
 {% endif %}
 
 {% endblock %}
