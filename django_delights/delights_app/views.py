@@ -8,12 +8,12 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .models import *
-from .forms import *
+#from .forms import *
 
 class SignUp(CreateView):
   form_class = UserCreationForm
-  success_url: reverse_lazy("login")
-  template_name: "registration/signup.html"
+  success_url = reverse_lazy("login")
+  template_name = "registration/signup.html"
 
 @login_required
 def home(request):
@@ -22,4 +22,5 @@ def home(request):
 def logout_request(request):
   logout(request)
   return redirect("home")
+
 
