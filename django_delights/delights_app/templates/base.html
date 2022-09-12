@@ -4,6 +4,7 @@
 
 {% if user.username %}
   <a href="{% url 'logout' %}">logout</a>
+  <a href="{% url 'password_change' %}">password change</a>
 {% endif %}
 
 {% block content %}
