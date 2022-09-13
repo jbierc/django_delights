@@ -31,3 +31,12 @@ class IngredientCreate(LoginRequiredMixin, CreateView):
   template_name = "delights_app/ingredient_create_form.html"
   form_class = IngredientCreateForm
 
+class IngredientUpdate(LoginRequiredMixin, UpdateView):
+  model = Ingredient
+  template_name = "delights_app/ingredient_update_form.html"
+  form_class = IngredientUpdateForm
+
+class IngredientDelete(LoginRequiredMixin, DeleteView):
+  model = Ingredient
+  template_name = "delights_app/ingredient_delete_form.html"
+  success_url = reverse_lazy("ingredientlist")

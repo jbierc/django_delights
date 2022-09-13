@@ -6,5 +6,8 @@ class IngredientCreateForm(forms.ModelForm):
     model = Ingredient
     fields = ('name', 'quantity', 'unit', 'unit_price')
 
-
+class IngredientUpdateForm(forms.ModelForm):
+  class Meta:
+    model = Ingredient
+    fields = ('name', 'quantity', 'unit', 'unit_price')
 
