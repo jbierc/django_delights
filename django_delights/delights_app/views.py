@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .models import *
-#from .forms import *
+from .forms import *
 
 class SignUp(CreateView):
   form_class = UserCreationForm
@@ -25,3 +25,9 @@ def logout_request(request):
 
 class IngredientList(LoginRequiredMixin, ListView):
   model = Ingredient
+
+class IngredientCreate(LoginRequiredMixin, CreateView):
+  model = Ingredient
+  template_name = "delights_app/ingredient_create_form.html"
+  form_class = IngredientCreateForm
+

@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 
+{% load static%}
+<link rel="stylesheet" type="text/css" href='{% static "style.css" %}'>
 
 {% block content %}
-
-<table id="ingredients">
+<h2>Ingredients List</h2>
+<a href="{% url 'ingredientcreate' %}"><button class="btn">Add Ingredient</button></a>
+<table id="ingredient">
     <tr>
         <th>Name</th>
         <th>Quantity</th>
@@ -12,7 +15,7 @@
         <th></th>
         <th></th>
     </tr>
-    {% for ingredient in ingredients_list %}
+    {% for ingredient in ingredient_list %}
     <tr>
         <td>{{ ingredient.name }}</td>
         <td>{{ ingredient.quantity }}</td>
