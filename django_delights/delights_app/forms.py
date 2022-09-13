@@ -11,3 +11,12 @@ class IngredientUpdateForm(forms.ModelForm):
     model = Ingredient
     fields = ('name', 'quantity', 'unit', 'unit_price')
 
+class MenuItemCreateForm(forms.ModelForm):
+  class Meta:
+    model = MenuItem
+    fields = ('name', 'price')
+
+class MenuItemUpdateForm(forms.ModelForm):
+  class Meta:
+    model = MenuItem
+    fields = ('name', 'price')

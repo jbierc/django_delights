@@ -23,6 +23,7 @@ def logout_request(request):
   logout(request)
   return redirect("home")
 
+#ingredient views
 class IngredientList(LoginRequiredMixin, ListView):
   model = Ingredient
 
@@ -40,3 +41,26 @@ class IngredientDelete(LoginRequiredMixin, DeleteView):
   model = Ingredient
   template_name = "delights_app/ingredient_delete_form.html"
   success_url = reverse_lazy("ingredientlist")
+
+#menuitem views
+class MenuItemList(LoginRequiredMixin, ListView):
+  model = MenuItem
+
+class MenuItemCreate(LoginRequiredMixin, CreateView):
+  model = MenuItem
+  template_name = "delights_app/menuitem_create_form.html"
+  form_class = MenuItemCreateForm
+
+class MenuItemUpdate(LoginRequiredMixin, UpdateView):
+  model = MenuItem
+  template_name = "delights_app/menuitem_update_form.html"
+  form_class = MenuItemUpdateForm
+
+class MenuItemDelete(LoginRequiredMixin, DeleteView):
+  model = MenuItem
+  template_name = "delights_app/menuitem_delete_form.html"
+  success_url = reverse_lazy("menuitemlist")
+
+#reciperequirements views
+
+#purchase views
