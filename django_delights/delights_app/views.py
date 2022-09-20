@@ -62,5 +62,22 @@ class MenuItemDelete(LoginRequiredMixin, DeleteView):
   success_url = reverse_lazy("menuitemlist")
 
 #reciperequirements views
+class RecipeRequirementsList(LoginRequiredMixin, ListView):
+  model = RecipeRequirements
+
+class RecipeRequirementsCreate(LoginRequiredMixin, CreateView):
+  model = RecipeRequirements
+  template_name = "delights_app/reciperequirements_create_form.html"
+  form_class = RecipeRequirementsCreateForm
+
+class RecipeRequirementsUpdate(LoginRequiredMixin, UpdateView):
+  model = RecipeRequirements
+  template_name = "delights_app/reciperequirements_update_form.html"
+  form_class = RecipeRequirementsUpdateForm
+
+class RecipeRequirementsDelete(LoginRequiredMixin, DeleteView):
+  model = RecipeRequirements
+  template_name = "delights_app/reciperequirements_delete_form.html"
+  success_url = reverse_lazy("reciperequirementslist")
 
 #purchase views

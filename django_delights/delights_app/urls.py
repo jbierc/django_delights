@@ -13,6 +13,10 @@ urlpatterns = [
     path('menuitem/list', views.MenuItemList.as_view(), name='menuitemlist'),
     path('menuitem/create', views.MenuItemCreate.as_view(), name="menuitemcreate"),
     path('menuitem/update/<pk>', views.MenuItemUpdate.as_view(), name="menuitemupdate"),
-    path('menuitem/delete/<pk>', views.MenuItemDelete.as_view(), name="menuitemdelete")
+    path('menuitem/delete/<pk>', views.MenuItemDelete.as_view(), name="menuitemdelete"),
+    path('reciperequirements/list', views.RecipeRequirementsList.as_view(), name='reciperequirementslist'),
+    path('reciperequirements/create', views.RecipeRequirementsCreate.as_view(), name="reciperequirementscreate"),
+    path('reciperequirements/update/<pk>', views.RecipeRequirementsUpdate.as_view(), name="reciperequirementsupdate"),
+    path('reciperequirements/delete/<pk>', views.RecipeRequirementsDelete.as_view(), name="reciperequirementsdelete")
 ]
 

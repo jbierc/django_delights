@@ -1,4 +1,5 @@
 from datetime import datetime
+from pickle import TRUE
 from tkinter import CASCADE
 from django.db import models
 
@@ -15,7 +16,7 @@ class Ingredient(models.Model):
     unit_price = models.FloatField(default=0.0)
 
     def __str__(self):
-        return self.name
+        return f'{self.name} ({self.unit})'
     def get_absolute_url(self):
         return '/ingredient/list'
 
