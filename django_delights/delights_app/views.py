@@ -81,3 +81,15 @@ class RecipeRequirementsDelete(LoginRequiredMixin, DeleteView):
   success_url = reverse_lazy("reciperequirementslist")
 
 #purchase views
+class PurchaseList(LoginRequiredMixin, ListView):
+  model = Purchase
+
+class PurchaseUpdate(LoginRequiredMixin, UpdateView):
+  model = Purchase
+  template_name = "delights_app/purchase_update_form.html"
+  form_class = PurchaseUpdateForm
+
+class PurchaseDelete(LoginRequiredMixin, DeleteView):
+  model = Purchase
+  template_name = "delights_app/purchase_delete_form.html"
+  success_url = reverse_lazy("purchaselist")

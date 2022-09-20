@@ -6,8 +6,9 @@
 {% if user.username %}
 <h4>Welcome {{ user.username }}</h4>
 <a href="{% url 'ingredientlist' %}">Ingredients</a>
-<a href="{% url 'menuitemlist' %}">Menu Item</a>
+<a href="{% url 'menuitemlist' %}">Menu Items</a>
 <a href="{% url 'reciperequirementslist' %}">Recipe Requirements</a>
+<a href="{% url 'purchaselist' %}">Purchase List</a>
 {% endif %}
 
 {% endblock %}

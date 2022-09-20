@@ -17,6 +17,9 @@ urlpatterns = [
     path('reciperequirements/list', views.RecipeRequirementsList.as_view(), name='reciperequirementslist'),
     path('reciperequirements/create', views.RecipeRequirementsCreate.as_view(), name="reciperequirementscreate"),
     path('reciperequirements/update/<pk>', views.RecipeRequirementsUpdate.as_view(), name="reciperequirementsupdate"),
-    path('reciperequirements/delete/<pk>', views.RecipeRequirementsDelete.as_view(), name="reciperequirementsdelete")
+    path('reciperequirements/delete/<pk>', views.RecipeRequirementsDelete.as_view(), name="reciperequirementsdelete"),
+    path('purchase/list', views.PurchaseList.as_view(), name='purchaselist'),
+    path('purchase/update/<pk>', views.PurchaseUpdate.as_view(), name="purchaseupdate"),
+    path('purchase/delete/<pk>', views.PurchaseDelete.as_view(), name="purchasedelete")
 ]
 
