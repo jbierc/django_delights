@@ -84,6 +84,11 @@ class RecipeRequirementsDelete(LoginRequiredMixin, DeleteView):
 class PurchaseList(LoginRequiredMixin, ListView):
   model = Purchase
 
+class PurchaseCreate(LoginRequiredMixin, CreateView):
+  model = Purchase
+  template_name = "delights_app/purchase_create_form.html"
+  form_class = PurchaseCreateForm
+
 class PurchaseUpdate(LoginRequiredMixin, UpdateView):
   model = Purchase
   template_name = "delights_app/purchase_update_form.html"
