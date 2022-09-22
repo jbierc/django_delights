@@ -1,3 +1,5 @@
+from re import template
+from urllib import request
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.http import HttpResponse
@@ -84,10 +86,22 @@ class RecipeRequirementsDelete(LoginRequiredMixin, DeleteView):
 class PurchaseList(LoginRequiredMixin, ListView):
   model = Purchase
 
-class PurchaseCreate(LoginRequiredMixin, CreateView):
-  model = Purchase
+def PurchaseCreate(request, pk=0):
+
+  if request.method == 'POST':
+    newPurchase = Purchase()
+    newPurchase.menu_item_id = request.POST['menu_item']
+    newPurchase.timestamp = request.POST['timestamp']
+    newPurchase.save()
+    return redirect('menuitemlist')
+
+  context = {}
+  item = MenuItem.objects.get(id=pk)
+  initial_dict = { "menu_item":item }
+  context['form'] = PurchaseCreateForm(request.POST or None, initial=initial_dict)
   template_name = "delights_app/purchase_create_form.html"
-  form_class = PurchaseCreateForm
+
+  return render(request, template_name, context)
 
 class PurchaseUpdate(LoginRequiredMixin, UpdateView):
   model = Purchase
