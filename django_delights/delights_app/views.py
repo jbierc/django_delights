@@ -29,6 +29,10 @@ def logout_request(request):
 class IngredientList(LoginRequiredMixin, ListView):
   model = Ingredient
 
+#obliczenie ceny składników
+  def ingr_cost(self):
+    pass
+
 class IngredientCreate(LoginRequiredMixin, CreateView):
   model = Ingredient
   template_name = "delights_app/ingredient_create_form.html"
@@ -87,20 +91,36 @@ class PurchaseList(LoginRequiredMixin, ListView):
   model = Purchase
 
 def PurchaseCreate(request, pk=0):
+  #current MenuItem and it's RecipeRequirements
+  item = MenuItem.objects.get(id=pk)
+  all_requirements = RecipeRequirements.objects.filter(menu_item=item)
 
   if request.method == 'POST':
+    #calculating inv.
+    restock = []
+    for requirements in all_requirements:
+      if requirements.quantity <= requirements.ingredient.quantity:
+        requirements.ingredient.quantity -= requirements.quantity
+      else:
+        restock.append(requirements.ingredient.name)
+    #alerting if not enough ingr.    
+    if restock:
+      return HttpResponse(f'Not enough {", ".join(restock)}')
+    else:
+      for requirements in all_requirements:
+        requirements.ingredient.save()
+    #adding new purchase
     newPurchase = Purchase()
     newPurchase.menu_item_id = request.POST['menu_item']
     newPurchase.timestamp = request.POST['timestamp']
     newPurchase.save()
     return redirect('menuitemlist')
 
+  #adding current menu_item context to form
   context = {}
-  item = MenuItem.objects.get(id=pk)
   initial_dict = { "menu_item":item }
   context['form'] = PurchaseCreateForm(request.POST or None, initial=initial_dict)
   template_name = "delights_app/purchase_create_form.html"
-
   return render(request, template_name, context)
 
 class PurchaseUpdate(LoginRequiredMixin, UpdateView):
