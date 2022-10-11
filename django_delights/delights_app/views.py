@@ -1,8 +1,10 @@
+from email import message
 from re import template
 from urllib import request
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.http import HttpResponse
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
@@ -102,18 +104,21 @@ def PurchaseCreate(request, pk=0):
       if requirements.quantity <= requirements.ingredient.quantity:
         requirements.ingredient.quantity -= requirements.quantity
       else:
-        restock.append(requirements.ingredient.name)
+        #adding number of needed ingr. units to restock
+        restock.append(requirements.ingredient.name + ' ' + str(requirements.quantity - requirements.ingredient.quantity) + requirements.ingredient.unit)
     #alerting if not enough ingr.    
     if restock:
-      return HttpResponse(f'Not enough {", ".join(restock)}')
+      messages.warning(request, f'Not enough {", ".join(restock)}')
+      return redirect('ingredientlist') #HttpResponse(f'Not enough {", ".join(restock)}')
     else:
       for requirements in all_requirements:
         requirements.ingredient.save()
     #adding new purchase
     newPurchase = Purchase()
-    newPurchase.menu_item_id = request.POST['menu_item']
+    newPurchase.menu_item_id = request.POST['menu_item']  # type: ignore
     newPurchase.timestamp = request.POST['timestamp']
     newPurchase.save()
+    messages.success(request, f'Successfully added {newPurchase.menu_item.name} purchase.')
     return redirect('menuitemlist')
 
   #adding current menu_item context to form
