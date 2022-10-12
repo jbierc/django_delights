@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load static%}
+<link rel="stylesheet" type="text/css" href='{% static "style.css" %}'>
+
+{% block content %}
+<h2>Summary</h2>
+<a href="{% url 'home' %}"><input type="button" value="Go back"/></a>
+<table id="summary">
+    <tr>
+        <th>Revenue</th>
+        <th>Cost</th>
+        <th>Profit</th>
+    </tr>
+    <tr>
+        <td>{{ revenue }}</td>
+        <td>{{ cost }}</td>  
+        <td>{{ profit }}</td>
+    </tr>
+</table>
+
+{% endblock %}

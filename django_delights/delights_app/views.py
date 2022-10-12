@@ -31,10 +31,6 @@ def logout_request(request):
 class IngredientList(LoginRequiredMixin, ListView):
   model = Ingredient
 
-#obliczenie ceny składników
-  def ingr_cost(self):
-    pass
-
 class IngredientCreate(LoginRequiredMixin, CreateView):
   model = Ingredient
   template_name = "delights_app/ingredient_create_form.html"
@@ -92,6 +88,7 @@ class RecipeRequirementsDelete(LoginRequiredMixin, DeleteView):
 class PurchaseList(LoginRequiredMixin, ListView):
   model = Purchase
 
+@login_required
 def PurchaseCreate(request, pk=0):
   #current MenuItem and it's RecipeRequirements
   item = MenuItem.objects.get(id=pk)
@@ -137,3 +134,20 @@ class PurchaseDelete(LoginRequiredMixin, DeleteView):
   model = Purchase
   template_name = "delights_app/purchase_delete_form.html"
   success_url = reverse_lazy("purchaselist")
+
+@login_required
+def Summary(request):
+
+  revenue = 0
+  cost = 0
+  all_purchases = Purchase.objects.all()
+  for purchase in all_purchases:
+    revenue += purchase.menu_item.price
+    menu_item_req = RecipeRequirements.objects.filter(menu_item = purchase.menu_item)
+    for req in menu_item_req:
+      cost += (req.ingredient.unit_price * req.quantity)
+  profit = round(revenue - cost, 2)
+
+  context = { 'revenue': revenue, 'cost': cost, 'profit':profit }
+  template_name = "delights_app/summary.html"
+  return render(request, template_name, context)
