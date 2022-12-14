@@ -1,12 +1,20 @@
 {% load static%}
 <link rel="stylesheet" type="text/css" href='{% static "style.css" %}'>
-
-<h1>Django Delights</h1>
-
-{% if user.username %}
-  <a href="{% url 'logout' %}">logout</a>
-  <a href="{% url 'password_change' %}">password change</a>
-{% endif %}
+<header>
+  <h1>Django Delights</h1>
+  <nav>
+    {% if user.username %}
+    <h4>Welcome {{ user.username }}</h4>
+    <a href="{% url 'ingredientlist' %}">Ingredients</a>
+    <a href="{% url 'menuitemlist' %}">Menu Items</a>
+    <a href="{% url 'reciperequirementslist' %}">Recipe Requirements</a>
+    <a href="{% url 'purchaselist' %}">Purchase List</a>
+    <a href="{% url 'summary' %}">Summary</a>
+    <a href="{% url 'logout' %}">logout</a>
+    <a href="{% url 'password_change' %}">password change</a>
+    {% endif %}
+  </nav>
+</header>
 
 {% block content %}
 {% endblock %}
