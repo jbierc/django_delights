@@ -1,20 +1,28 @@
 {% load static%}
-<link rel="stylesheet" type="text/css" href='{% static "style.css" %}'>
-<header>
-  <h1>Django Delights</h1>
-  <nav>
-    {% if user.username %}
-    <h4>Welcome {{ user.username }}</h4>
-    <a href="{% url 'ingredientlist' %}">Ingredients</a>
-    <a href="{% url 'menuitemlist' %}">Menu Items</a>
-    <a href="{% url 'reciperequirementslist' %}">Recipe Requirements</a>
-    <a href="{% url 'purchaselist' %}">Purchase List</a>
-    <a href="{% url 'summary' %}">Summary</a>
-    <a href="{% url 'logout' %}">logout</a>
-    <a href="{% url 'password_change' %}">password change</a>
-    {% endif %}
-  </nav>
-</header>
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href='{% static "style.css" %}'>
+    <title>Django Delights</title>
+  </head>
+  <body>
+    <header>
+      <h1>Django Delights</h1>
+      <nav>
+        {% if user.username %}
+        <h4>Welcome {{ user.username }}</h4>
+        <a href="{% url 'ingredientlist' %}">Ingredients</a>
+        <a href="{% url 'menuitemlist' %}">Menu Items</a>
+        <a href="{% url 'reciperequirementslist' %}">Recipe Requirements</a>
+        <a href="{% url 'purchaselist' %}">Purchase List</a>
+        <a href="{% url 'summary' %}">Summary</a>
+        <a href="{% url 'logout' %}">logout</a>
+        <a href="{% url 'password_change' %}">password change</a>
+        {% endif %}
+      </nav>
+    </header>
+  </body>
+</html>
 {% block content %}
 {% endblock %}
