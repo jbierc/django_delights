@@ -1,4 +1,4 @@
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,9 +6,12 @@
     <link rel="stylesheet" type="text/css" href='{% static "style.css" %}'>
     <title>Django Delights</title>
   </head>
+
   <body>
     <header>
       <h1>Django Delights</h1>
+      {% block content %}
+      {% endblock %}
       <nav>
         {% if user.username %}
         <h4>Welcome {{ user.username }}</h4>
@@ -21,8 +24,9 @@
         <a href="{% url 'password_change' %}">password change</a>
         {% endif %}
       </nav>
+      <div class="transbox">
+        
+      </div>
     </header>
   </body>
 </html>
-{% block content %}
-{% endblock %}

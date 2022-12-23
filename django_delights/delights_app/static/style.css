@@ -6,25 +6,46 @@
 
 html {
     font-size: 12px;
-    
     height: 100vh;
-}
-
-body {
-    background-image: url('/django_delights/django_delights/delights_app/static/restaurant-dish-meal-food-kitchen-cuisine-809795-pxhere.com.jpg');
-    background-position: center;
-    background-size: cover;
 }
 
 header {
     position: relative;
-    height: 25vh;
-    
+    height: 100vh;
+    background-image: url('restaurant-dish-meal-food-kitchen-cuisine-809795-pxhere.com.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+
+}
+
+.transbox {
+    background-color: #ffffff;
+    height: 100vh;
+    opacity: 0.9;
+    z-index: 1;
 }
 
 h1 {
     position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 6rem;
+    color: #119671;
+    z-index: 3;
+
 }
+
+form {
+    position: absolute;
+    text-align: center;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
 
 table {
     border-collapse: collapse;
