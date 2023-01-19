@@ -4,16 +4,20 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href='{% static "style.css" %}'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
     <title>Django Delights</title>
   </head>
   <body>
     <header>
+      <div class="transbox"></div>
       <h1>Django Delights</h1>
+      <h2>smart tool for your restaurant</h2>
       {% block content %}
       {% endblock %}
       <nav>
+        <i class="fa-solid fa-bars"></i>
         {% if user.username %}
-        <h4>Welcome {{ user.username }}</h4>
+        <h>Welcome {{ user.username }}</h3>
         <a href="{% url 'ingredientlist' %}">Ingredients</a>
         <a href="{% url 'menuitemlist' %}">Menu Items</a>
         <a href="{% url 'reciperequirementslist' %}">Recipe Requirements</a>
@@ -23,9 +27,6 @@
         <a href="{% url 'password_change' %}">password change</a>
         {% endif %}
       </nav>
-      <div class="transbox">
-        
-      </div>
     </header>
   </body>
 </html>

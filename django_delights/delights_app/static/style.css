@@ -34,8 +34,16 @@ h1 {
     font-size: 6rem;
     color: #119671;
     z-index: 3;
-    
+}
 
+h2 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 5rem;
+    color: #119671;
+    z-index: 3;
 }
 
 form {
