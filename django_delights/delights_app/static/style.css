@@ -20,6 +20,7 @@ header {
 }
 
 .transbox {
+    position: relative;
     background-color: #ffffff;
     height: 100vh;
     opacity: 0.9;
@@ -28,20 +29,22 @@ header {
 
 h1 {
     position: absolute;
-    top: 5%;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
     font-size: 6rem;
+    line-height: 10vh;
     color: #119671;
     z-index: 3;
 }
 
 h2 {
     position: absolute;
-    top: 40%;
+    top: 32%;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 5rem;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
     color: #119671;
     z-index: 3;
 }
@@ -58,6 +61,35 @@ form {
 form p input {
     background-color: rgb(255, 255, 255);
     width: 75vw;
+}
+
+form p label {
+    color: #119671;
+    text-transform: lowercase;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    right: 0vw;
+    text-align: right;    
+}
+
+.login-button {
+    position: absolute;
+    top: 22vw;
+    right: 20vw;
+    color: #ffffff;
+    background-color: #119671;
+    border: none;
+    padding: 2vw;
+}
+
+.signin-button {
+    position: absolute;
+    top: 22vw;
+    right: 0vw;
+    color: #ffffff;
+    background-color: #119671;
+    border: none;
+    padding: 2vw;
 }
 
 table {

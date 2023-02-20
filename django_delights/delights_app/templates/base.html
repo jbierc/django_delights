@@ -14,9 +14,9 @@
       <h2>smart tool for your restaurant</h2>
       {% block content %}
       {% endblock %}
+      {% if user.username %}
       <nav>
         <i class="fa-solid fa-bars"></i>
-        {% if user.username %}
         <h>Welcome {{ user.username }}</h3>
         <a href="{% url 'ingredientlist' %}">Ingredients</a>
         <a href="{% url 'menuitemlist' %}">Menu Items</a>
@@ -25,8 +25,8 @@
         <a href="{% url 'summary' %}">Summary</a>
         <a href="{% url 'logout' %}">logout</a>
         <a href="{% url 'password_change' %}">password change</a>
-        {% endif %}
       </nav>
+      {% endif %}
     </header>
   </body>
 </html>
