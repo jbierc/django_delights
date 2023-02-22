@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'delights_app.apps.DelightsAppConfig'
+    'delights_app.apps.DelightsAppConfig',
+    'fontawesomefree',
 ]
 
 MIDDLEWARE = [

@@ -5,8 +5,8 @@
 }
 
 html {
-    font-size: 12px;
     height: 100vh;
+    font-size: 12px;
 }
 
 header {
@@ -55,24 +55,24 @@ h2 {
 
 form {
     position: absolute;
-    text-align: left;
     top: 40%;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 2;
+    text-align: left;
     height: 30vh;
+    z-index: 2;
 }
 
 form p input {
-    background-color: rgb(255, 255, 255);
     height: 8vh;
     width: 75vw;
     padding: 4vw;
+    margin-bottom: 1vh;
     font-size: 2rem;
     border-color: #119671;
     border-style: solid;
     border-radius: 1vw;
-    margin-bottom: 1vh;
+    background-color: rgb(255, 255, 255);
 }
 
 form p input:focus-visible {
@@ -80,44 +80,45 @@ form p input:focus-visible {
 }
 
 form p label {
-    color: #119671;
+    right: 0vw;
+    margin: 20vw 0vw;
     text-transform: lowercase;
     font-size: 1.5rem;
     font-family: Arial, Helvetica, sans-serif;
-    right: 0vw;
-    margin: 20vw 0vw;
+    color: #119671;
 }
 
 .login-button {
     position: absolute;
     top: 45vw;
     right: 20vw;
+    padding: 2vw;
+    border: none;
+    border-radius: 1vw;    
     color: #ffffff;
     background-color: #119671;
-    border-radius: 1vw;
-    border: none;
-    padding: 2vw;
 }
 
 .signin-button {
     position: absolute;
     top: 45vw;
     right: 0vw;
+    padding: 2vw;
+    border: none;
+    border-radius: 1vw;
     color: #ffffff;
     background-color: #119671;
-    border-radius: 1vw;
-    border: none;
-    padding: 2vw;
+
 }
 
 table {
-    border-collapse: collapse;
     width: 100%;
+    border-collapse: collapse;
 }
 
 td, th {
-    border: 1px solid #ddd;
     padding: 8px;
+    border: 1px solid #ddd;
 }
 
 tr:nth-child(even) {
@@ -132,6 +133,6 @@ th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #32a0af;
     color: white;
+    background-color: #32a0af;
 }
