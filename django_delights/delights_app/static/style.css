@@ -33,30 +33,30 @@ body {
 
 h1 {
     position: absolute;
-    top: 10%;
-    left: 50%;
+    top: 15vh;
+    left: 50vw;
     transform: translateX(-50%);
     font-size: 6rem;
     line-height: 10vh;
     color: #119671;
-    z-index: 3;
+    z-index: 2;
 }
 
 h2 {
     position: absolute;
-    top: 32%;
-    left: 50%;
+    top: 37vh;
+    left: 50vw;
     transform: translateX(-50%);
     font-size: 1rem;
     font-family: Arial, Helvetica, sans-serif;
     color: #119671;
-    z-index: 3;
+    z-index: 2;
 }
 
 form {
     position: absolute;
-    top: 40%;
-    left: 50%;
+    top: 45vh;
+    left: 50vw;
     transform: translateX(-50%);
     text-align: left;
     height: 30vh;
@@ -91,24 +91,44 @@ form p label {
 .login-button {
     position: absolute;
     top: 45vw;
-    right: 20vw;
+    right: 0vw;
     padding: 2vw;
+    font-size: 1.4rem;
     border: none;
     border-radius: 1vw;    
     color: #ffffff;
     background-color: #119671;
 }
 
-.signin-button {
-    position: absolute;
-    top: 45vw;
-    right: 0vw;
-    padding: 2vw;
-    border: none;
-    border-radius: 1vw;
-    color: #ffffff;
-    background-color: #119671;
+.login-button:hover {
+    background-color: #0e6e53;
+}
 
+.signup-button {
+    position: absolute;
+    top: 5.5vh;
+    right: 25vw;
+    font-weight: bolder;
+    border: none;
+    color: #119671;
+    z-index: 2;
+}
+
+.signup-button:hover {
+    color: #0f7055;
+}
+
+.fa-bars::before {
+    position: absolute;
+    top: 4vh;
+    right: 12.5vw;
+    font-size: 3rem;
+    z-index: 2;
+    color: #119671;
+}
+
+.bars:hover .fa-bars::before {
+    color: #0f7055;
 }
 
 table {
@@ -130,8 +150,8 @@ tr:hover {
 }
 
 th {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     text-align: left;
     color: white;
     background-color: #32a0af;
