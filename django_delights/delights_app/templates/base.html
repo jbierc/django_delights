@@ -11,28 +11,29 @@
   </head>
   <body>
     <header>
-      <div class="transbox"></div>
-      <h1>Django Delights</h1>
-      <h2>smart tool for your restaurant</h2>
       <!-- HAMBURGER MENU -->
       <nav id="hamnav">
         <label for="hamburger">&#9776;</label>
         <input type="checkbox" id="hamburger">
         <!-- MENU ITEMS -->
         <div id="hamitems">
+          {% if user.username %}
           <a href="{% url 'password_change' %}">Password Change</a>
           <a href="{% url 'logout' %}">Logout</a>
+          {% endif %}
           <a href="{% url 'signup' %}">Sign Up</a>
-        
-
-        <!-- <span class='bars'><i class="fa-solid fa-bars"></i></span> -->
       </nav>
-      
+      <h1>Django Delights</h1>
+      <h3>smart tool for your restaurant</h3>
+      {% if user.username %}
+      <h2>Welcome {{ user.username }}</h2>
+      {% endif %}
+    </header>
+    <main>
       {% block content %}
       {% endblock %}
       {% if user.username %}
-      <div>
-        <h3>Welcome {{ user.username }}</h3>
+      <div id="menu">
         <a href="{% url 'ingredientlist' %}">Ingredients</a>
         <a href="{% url 'menuitemlist' %}">Menu Items</a>
         <a href="{% url 'reciperequirementslist' %}">Recipe Requirements</a>
@@ -40,8 +41,7 @@
         <a href="{% url 'summary' %}">Summary</a>
       </div>
       {% endif %}
-    </header>
-    <main></main>
+    </main>
     <footer></footer>
   </body>
 </html>
