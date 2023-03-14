@@ -5,8 +5,6 @@
 }
 
 html {
-    height: 100%;
-    width: 100%;
     font-size: 12px;
     overflow: auto;
 }
@@ -20,29 +18,20 @@ header {
     z-index: 0;
 }
 
-body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+nav {
+    display: block;
 }
 
-main {
-    position: absolute;
-}
-
-footer {
-    display: none;
-}
-
-/*.transbox {
+/* old class for background image transparency
+.transbox {
     position: relative;
     background-color: #ffffff;
     height: 100vh;
     width: 100vw;
     opacity: 0.9;
     z-index: 1;
-}*/
+}
+*/
 
 h1 {
     position: absolute;
@@ -66,6 +55,15 @@ h2 {
     z-index: 2;
 }
 
+h3 {
+    color: #119671;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
 form {
     position: absolute;
     top: 45vh;
@@ -86,6 +84,10 @@ form p input {
     border-style: solid;
     border-radius: 1vw;
     background-color: rgb(255, 255, 255);
+}
+
+#id_username {
+    color: rgb(37, 37, 37);
 }
 
 form p input:focus-visible {
@@ -115,20 +117,6 @@ form p label {
 
 .login-button:hover {
     background-color: #0e6e53;
-}
-
-.signup-button {
-    position: absolute;
-    top: 6vh;
-    right: 25vw;
-    font-weight: bolder;
-    border: none;
-    color: #119671;
-    z-index: 2;
-}
-
-.signup-button:hover {
-    color: #0f7055;
 }
 
 .fa-bars::before {
@@ -168,4 +156,49 @@ th {
     text-align: left;
     color: white;
     background-color: #32a0af;
+}
+
+/* VERTICAL MENU */
+#hamitems {
+    position: absolute;
+    top: 10vh;
+    right: 0;
+    display: block; 
+}
+
+#hamitems a {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    background: #119671;
+    padding: 2vw;
+}
+
+/* HAMBURGER ICON */
+#hamnav label {
+    position: absolute;
+    display: inline-block;
+    right: 0;
+    color: #119671;
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 5vw;
+}
+#hamnav label:hover {
+    color: #0f7055;
+}
+#hamnav input {
+    display: none;
+}
+
+/* HIDE MENU ITEMS */
+#hamitems { display: none; }
+
+/* TOGGLE SHOW HIDE */
+#hamnav input:checked ~ #hamitems {
+    display: block;
+    text-align: right;
+}
+#hamnav input:checked ~ #hamnav label {
+    opacity: 0.3;
 }
