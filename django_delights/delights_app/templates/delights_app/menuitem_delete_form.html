@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Delete Menu Item</h2>
-<form method="post">
+<h4>Delete Menu Item</h4>
+<form method="post" class="tablelist">
 <div>
   {% csrf_token %}
-  <p>Are you sure you want to delete "{{ object }}"?</p>
-  <input type="submit" value="Confirm"/>
-  <a href="{% url 'menuitemlist' %}"><input type="button" value="Go back"/></a>
+  <p class="del-question">Are you sure you want to delete "{{ object }}"?</p>
+  <input type="submit" value="Confirm" class="submit-button" id="del"/>
+  <a href="{% url 'menuitemlist' %}"><input type="button" value="Go back" class="goback-button" id="del"/></a>
 </div>
 </form>
 {% endblock %}

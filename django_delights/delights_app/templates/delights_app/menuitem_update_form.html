@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Update Menu Item</h2>
-<form method="post">
+<h4>Update Menu Item</h4>
+<form method="post" class="tablelist">
 <div>
   {% csrf_token %}
   {{ form.as_p }}
-  <input type="submit" value="Submit"/>
-  <a href="{% url 'menuitemlist' %}"><input type="button" value="Go back"/></a>
+  <input type="submit" value="Submit" class="submit-button" id="submitmenu"/>
+  <a href="{% url 'menuitemlist' %}"><input type="button" value="Go back" class="goback-button" id="submitmenu"/></a>
 </div>
 </form>
 {% endblock %}

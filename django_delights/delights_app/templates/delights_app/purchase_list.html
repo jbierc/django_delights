@@ -4,9 +4,9 @@
 <link rel="stylesheet" type="text/css" href='{% static "style.css" %}'>
 
 {% block content %}
-<h2>Purchase List</h2>
-<a href="{% url 'home' %}"><input type="button" value="Go back"/></a>
-<table id="purchase">
+<h4>Purchase List</h4>
+<a href="{% url 'home' %}"><input type="button" value="Go back" class="btn"/></a>
+<table id="purchase" class="tablelist">
     <tr>
         <th>Menu Item</th>
         <th>Timestamp</th>
@@ -17,8 +17,8 @@
     <tr>
         <td>{{ purchase.menu_item }}</td>
         <td>{{ purchase.timestamp }}</td>  
-        <td><a href="{% url 'purchaseupdate' purchase.id %}"><button>Edit</button></a></td>
-        <td><a href="{% url 'purchasedelete' purchase.id %}"><button>Delete</button></a></td>
+        <td class="edit"><a href="{% url 'purchaseupdate' purchase.id %}"><button>Edit</button></a></td>
+        <td class="edit"><a href="{% url 'purchasedelete' purchase.id %}"><button>Delete</button></a></td>
     </tr>
     {% endfor%}
 </table>

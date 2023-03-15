@@ -1,5 +1,8 @@
-{% extends "base.html" %}
+{% extends "home.html" %}
+
 {% block content %}
+<h1>Django Delights</h1>
+<h3>smart tool for your restaurant</h3>
 <form method="POST">
 {% csrf_token %}
 {{ form.as_p }}

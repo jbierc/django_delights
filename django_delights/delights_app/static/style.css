@@ -19,7 +19,6 @@ header {
 }
 
 nav {
-    display: block;
     position: absolute;
     right: 0;
     width: 100vw;
@@ -59,12 +58,24 @@ h3 {
     z-index: 2;
 }
 
+h4 {
+    position: absolute;
+    top: 15vh;
+    left: 50vw;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #119671;
+}
+
 a {
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     color: #119671;
 }
 
+/* FORM STYLES */
 form {
     position: absolute;
     top: 45vh;
@@ -73,6 +84,10 @@ form {
     text-align: left;
     height: 30vh;
     z-index: 2;
+}
+
+form p {
+    margin-bottom: 1vh;
 }
 
 form p input {
@@ -86,11 +101,6 @@ form p input {
     border-radius: 1vw;
     background-color: rgb(255, 255, 255);
 }
-
-#id_username {
-    color: rgb(37, 37, 37);
-}
-
 form p input:focus-visible {
     outline-color: #0d7255;
 }
@@ -104,6 +114,12 @@ form p label {
     color: #119671;
 }
 
+#id_username {
+    color: rgb(37, 37, 37);
+}
+
+/* LOGIN BUTTON 
+*/
 .login-button {
     position: absolute;
     top: 45vw;
@@ -115,51 +131,53 @@ form p label {
     color: #ffffff;
     background-color: #119671;
 }
-
 .login-button:hover {
     background-color: #0e6e53;
 }
 
-.fa-bars::before {
-    position: absolute;
-    top: 4.5vh;
-    right: 12.5vw;
-    font-size: 3rem;
-    z-index: 2;
-    color: #119671;
-}
-
-.bars:hover .fa-bars::before {
-    color: #0f7055;
-}
-
+/* TABLE STYLES */
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
 td, th {
-    padding: 8px;
-    border: 1px solid #ddd;
+    padding: 2vw;
+}
+
+td {
+    border: 0.2vw solid #adadad;
+}
+
+th {
+    text-align: left;
+    color: white;
+    border: 0.2vw solid #0f8362;
+    background-color: #119671;
 }
 
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
-
 tr:hover {
     background-color: #ddd;
 }
-
-th {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    text-align: left;
-    color: white;
+/* EDIT, DELETE BUTTON STYLE */
+.edit {
     background-color: #119671;
 }
+.edit:hover {
+    background-color: #0e6e53;
+}
+.edit button {
+    padding: 2vw;
+    font-size: 1.2rem;
+    border: none;  
+    color: #ffffff;
+    background: none;
+}
 
-/* VERTICAL MENU */
+/* VERTICAL HAMBURGER MENU */
 #hamitems {
     display: block;
     z-index: 2; 
@@ -183,12 +201,11 @@ th {
 #hamnav label {
     display: block;
     text-align: right;
-    color: white;
-    background-color: #119671;
+    padding: 2vw 4vw;
     font-size: 3rem;
     font-weight: bold;
-    padding: 2vw 4vw;
-
+    color: white;
+    background-color: #119671;
 }
 #hamnav label:hover {
     color: #0f7055;
@@ -198,7 +215,6 @@ th {
     opacity: 0.5;
     transition: all 0.2s ease-in-out;
 }
-
 #hamnav input {
     display: none;
 }
@@ -212,13 +228,13 @@ th {
     text-align: right;
 }
 
+/* MENU BUTTON OPTIONS */
 #menu {
     position: absolute;
     top: 50vh;
     left: 50vw;
     transform: translateX(-50%);
 }
-
 #menu a {
     display: block;
     font-size: 1.6rem;
@@ -231,6 +247,72 @@ th {
     background-color: #119671;
 }
 
-#menu a:focus {
-    display: none;
+/* TABLE LISTS */
+.tablelist {
+    position: absolute;
+    top: 30vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn {
+    position: absolute;
+    top: 40vw;
+    right: 0vw;
+    padding: 2vw;
+    margin: 2vw;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 1vw;    
+    color: #ffffff;
+    background-color: #119671;
+}
+.btn:hover {
+    background: #0f7055;
+    transition: all 0.2s ease-in-out;
+}
+
+#additem {
+    right: 22vw;
+}
+
+.submit-button {
+    position: absolute;
+    top: 78vw;
+    right: 23vw;
+    padding: 2vw;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 1vw;
+    color: #ffffff;
+    background-color: #119671;
+}
+#submitmenu {
+    top: 26vh;
+}
+#submitpurchase {
+    top: 20vh;
+}
+#submitrecipe {
+    top: 22vh;
+}
+
+.goback-button {
+    position: absolute;
+    top: 78vw;
+    right: 0vw;
+    padding: 2vw;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 1vw;    
+    color: #ffffff;
+    background-color: #119671;
+}
+
+
+.del-question {
+    font-size: 1.8rem;
+    color: #119671;
+}
+#del {
+    top: 25vh;
 }

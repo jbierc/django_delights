@@ -4,10 +4,10 @@
 <link rel="stylesheet" type="text/css" href='{% static "style.css" %}'>
 
 {% block content %}
-<h2>Menu Item List</h2>
-<a href="{% url 'menuitemcreate' %}"><button class="btn">Add Menu Item</button></a>
-<a href="{% url 'home' %}"><input type="button" value="Go back"/></a>
-<table id="menuitem">
+<h4>Menu Items</h4>
+<a href="{% url 'menuitemcreate' %}"><button class="btn" id="additem">Add Menu Item</button></a>
+<a href="{% url 'home' %}"><input type="button" value="Go back" class="btn"/></a>
+<table id="menuitem" class="tablelist">
     <tr>
         <th>Name</th>
         <th>Price</th>
@@ -19,9 +19,9 @@
     <tr>
         <td>{{ menuitem.name }}</td>
         <td>{{ menuitem.price }}</td>  
-        <td><a href="{% url 'menuitemupdate' menuitem.id %}"><button>Edit</button></a></td>
-        <td><a href="{% url 'menuitemdelete' menuitem.id %}"><button>Delete</button></a></td>
-        <td><a href="{% url 'purchasecreate' menuitem.id %}"><button>Purchase</button></a></td>
+        <td class="edit"><a href="{% url 'menuitemupdate' menuitem.id %}"><button>Edit</button></a></td>
+        <td class="edit"><a href="{% url 'menuitemdelete' menuitem.id %}"><button>Delete</button></a></td>
+        <td class="edit"><a href="{% url 'purchasecreate' menuitem.id %}"><button>Purchase</button></a></td>
     </tr>
     {% endfor %}
 </table>

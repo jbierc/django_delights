@@ -4,9 +4,9 @@
 <link rel="stylesheet" type="text/css" href='{% static "style.css" %}'>
 
 {% block content %}
-<h2>Summary</h2>
-<a href="{% url 'home' %}"><input type="button" value="Go back"/></a>
-<table id="summary">
+<h4>Summary</h4>
+<a href="{% url 'home' %}"><input type="button" value="Go back" class="btn"/></a>
+<table id="summary" class="tablelist">
     <tr>
         <th>Revenue</th>
         <th>Cost</th>

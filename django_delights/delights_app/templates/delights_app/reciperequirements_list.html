@@ -4,10 +4,10 @@
 <link rel="stylesheet" type="text/css" href='{% static "style.css" %}'>
 
 {% block content %}
-<h2>Recipe Requirements List</h2>
-<a href="{% url 'reciperequirementscreate' %}"><button class="btn">Add Recipe Requirements</button></a>
-<a href="{% url 'home' %}"><input type="button" value="Go back"/></a>
-<table id="reciperequirements">
+<h4>Recipe Requirements</h4>
+<a href="{% url 'reciperequirementscreate' %}"><button class="btn" id="additem">Add Recipe Requirements</button></a>
+<a href="{% url 'home' %}"><input type="button" value="Go back" class="btn"/></a>
+<table id="reciperequirements" class="tablelist">
     <tr>
         <th>Menu Item</th>
         <th>Ingredient</th>
@@ -20,8 +20,8 @@
         <td>{{ reciperequirements.menu_item }}</td>
         <td>{{ reciperequirements.ingredient }}</td>
         <td>{{ reciperequirements.quantity }}</td>
-        <td><a href="{% url 'reciperequirementsupdate' reciperequirements.id %}"><button>Edit</button></a></td>
-        <td><a href="{% url 'reciperequirementsdelete' reciperequirements.id %}"><button>Delete</button></a></td>
+        <td class="edit"><a href="{% url 'reciperequirementsupdate' reciperequirements.id %}"><button>Edit</button></a></td>
+        <td class="edit"><a href="{% url 'reciperequirementsdelete' reciperequirements.id %}"><button>Delete</button></a></td>
     </tr>
     {% endfor%}
 </table>

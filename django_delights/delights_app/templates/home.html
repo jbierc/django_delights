@@ -1,6 +1,24 @@
 {% extends "base.html" %}
-
-
 {% block content %}
-
+      <h1>Django Delights</h1>
+      <h3>smart tool for your restaurant</h3>
+      {% if user.username %}
+      <h2>Welcome {{ user.username }}</h2>
+      {% endif %}
+    </header>
+    <main>
+      {% if user.username %}
+      <div id="menu">
+        <a href="{% url 'ingredientlist' %}">Ingredients</a>
+        <a href="{% url 'menuitemlist' %}">Menu Items</a>
+        <a href="{% url 'reciperequirementslist' %}">Recipe Requirements</a>
+        <a href="{% url 'purchaselist' %}">Purchase List</a>
+        <a href="{% url 'summary' %}">Summary</a>
+      </div>
+      {% endif %}
+    </main>
+    <footer></footer>
+  </body>
+</html>
 {% endblock %}
+

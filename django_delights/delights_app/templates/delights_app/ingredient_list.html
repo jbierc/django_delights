@@ -4,10 +4,10 @@
 <link rel="stylesheet" type="text/css" href='{% static "style.css" %}'>
 
 {% block content %}
-<h2>Ingredients List</h2>
-<a href="{% url 'ingredientcreate' %}"><button class="btn">Add Ingredient</button></a>
-<a href="{% url 'home' %}"><input type="button" value="Go back"/></a>
-<table id="ingredient">
+<h4>Ingredients</h4>
+<a href="{% url 'ingredientcreate' %}"><button class="btn" id="additem">Add Ingredient</button></a>
+<a href="{% url 'home' %}"><input type="button" value="Go back" class="btn"></a>
+<table id="ingredient" class="tablelist">
     <tr>
         <th>Name</th>
         <th>Quantity</th>
@@ -22,8 +22,8 @@
         <td>{{ ingredient.quantity }}</td>
         <td>{{ ingredient.unit }}</td>
         <td>{{ ingredient.unit_price }}</td>
-        <td><a href="{% url 'ingredientupdate' ingredient.id %}"><button>Edit</button></a></td>
-        <td><a href="{% url 'ingredientdelete' ingredient.id %}"><button>Delete</button></a></td>
+        <td class="edit"><a href="{% url 'ingredientupdate' ingredient.id %}"><button>Edit</button></a></td>
+        <td class="edit"><a href="{% url 'ingredientdelete' ingredient.id %}"><button>Delete</button></a></td>
     </tr>
     {% endfor%}
 </table>
@@ -33,5 +33,5 @@
   <h3 class={{ message.tags }}>{{ message }}</h3>
   {% endfor %}
 {% endif %}
-
+</div>
 {% endblock %}
