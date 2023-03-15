@@ -75,6 +75,10 @@ a {
     color: #119671;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 /* FORM STYLES */
 form {
     position: absolute;
@@ -118,8 +122,7 @@ form p label {
     color: rgb(37, 37, 37);
 }
 
-/* LOGIN BUTTON 
-*/
+/* LOGIN BUTTON */
 .login-button {
     position: absolute;
     top: 45vw;
@@ -133,6 +136,7 @@ form p label {
 }
 .login-button:hover {
     background-color: #0e6e53;
+    cursor: pointer;
 }
 
 /* TABLE STYLES */
@@ -168,6 +172,7 @@ tr:hover {
 }
 .edit:hover {
     background-color: #0e6e53;
+    cursor: pointer;
 }
 .edit button {
     padding: 2vw;
@@ -195,6 +200,7 @@ tr:hover {
 
 #hamitems a:hover {
     background-color: #0e6e53;
+    cursor: pointer;
 }
 
 /* HAMBURGER ICON */
@@ -210,6 +216,7 @@ tr:hover {
 #hamnav label:hover {
     color: #0f7055;
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
 }
 #hamnav label:focus {
     opacity: 0.5;
@@ -269,6 +276,7 @@ tr:hover {
 .btn:hover {
     background: #0f7055;
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 #additem {
@@ -285,6 +293,11 @@ tr:hover {
     border-radius: 1vw;
     color: #ffffff;
     background-color: #119671;
+}
+.submit-button:hover {
+    background-color: #0f7055;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
 }
 #submitmenu {
     top: 26vh;
@@ -307,7 +320,11 @@ tr:hover {
     color: #ffffff;
     background-color: #119671;
 }
-
+.goback-button:hover {
+    background-color: #0f7055;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
 
 .del-question {
     font-size: 1.8rem;
