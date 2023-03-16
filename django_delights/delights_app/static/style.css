@@ -9,7 +9,7 @@ html {
     overflow: auto;
 }
 
-header {
+body {
     position: relative;
     height: 100vh;
     background-image: url('restaurant_opacity.jpg');
@@ -186,12 +186,12 @@ tr:hover {
 
 /* VERTICAL HAMBURGER MENU */
 #hamitems {
-    display: block;
+    display: flex;
+    flex-direction: column;
     z-index: 2; 
 }
 
-#hamitems a {
-    display: block;
+#hamitems > a {
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
@@ -206,6 +206,10 @@ tr:hover {
 }
 
 /* HAMBURGER ICON */
+#hamnav {
+    position: sticky;
+}
+
 #hamnav label {
     display: block;
     text-align: right;
@@ -233,7 +237,8 @@ tr:hover {
 
 /* TOGGLE SHOW HIDE */
 #hamnav input:checked ~ #hamitems {
-    display: block;
+    display: flex;
+    flex-direction: column;
     text-align: right;
 }
 
