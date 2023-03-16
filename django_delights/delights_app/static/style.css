@@ -316,6 +316,11 @@ tr:hover {
 #signup {
     top: 58vh;
 }
+#gotomenu {
+    top: 55vh;
+    left: 50vw;
+    transform: translateX(-50%);
+}
 
 .goback-button {
     position: absolute;

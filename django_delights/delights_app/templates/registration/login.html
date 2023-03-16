@@ -3,9 +3,13 @@
 {% block content %}
 <h1>Django Delights</h1>
 <h3>smart tool for your restaurant</h3>
+{% if not user.username %}
 <form method="POST">
 {% csrf_token %}
 {{ form.as_p }}
 <input type="submit" value="Login" class="login-button">
 </form>
+{% endif %}
+<h2>Welcome {{ user.username }}</h2>
+<a href="{% url 'home' %}"><input type="button" value="Go to Menu" class="login-button" id="gotomenu"></a>
 {% endblock %}
