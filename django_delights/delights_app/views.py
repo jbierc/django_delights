@@ -14,11 +14,7 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .models import *
 from .forms import *
 
-class SignUp(CreateView):
-  form_class = UserCreationForm
-  success_url = reverse_lazy("login")
-  template_name = "registration/signup.html"
-
+#account views
 @login_required
 def home(request):
   return render(request, "home.html")
@@ -26,6 +22,16 @@ def home(request):
 def logout_request(request):
   logout(request)
   return redirect("home")
+
+class SignUp(CreateView):
+  form_class = UserCreationForm
+  success_url = reverse_lazy("login")
+  template_name = "registration/signup.html"
+  
+class PasswordChange(CreateView):
+  form_class = UserCreationForm
+  success_url = reverse_lazy("login")
+  template_name = "registration/password_change.html"
 
 #ingredient views
 class IngredientList(LoginRequiredMixin, ListView):

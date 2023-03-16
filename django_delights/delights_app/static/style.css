@@ -41,6 +41,7 @@ h2 {
     top: 45vh;
     left: 50vw;
     transform: translateX(-50%);
+    white-space: nowrap;
     font-size: 2.2rem;
     font-family: Arial, Helvetica, sans-serif;
     color: #119671;
@@ -52,6 +53,7 @@ h3 {
     top: 37vh;
     left: 50vw;
     transform: translateX(-50%);
+    white-space: nowrap;
     font-size: 1rem;
     font-family: Arial, Helvetica, sans-serif;
     color: #119671;
@@ -260,6 +262,9 @@ tr:hover {
     top: 30vh;
     font-family: Arial, Helvetica, sans-serif;
 }
+#signupform {
+    top: 20vh;
+}
 
 .btn {
     position: absolute;
@@ -307,6 +312,9 @@ tr:hover {
 }
 #submitrecipe {
     top: 22vh;
+}
+#signup {
+    top: 58vh;
 }
 
 .goback-button {
