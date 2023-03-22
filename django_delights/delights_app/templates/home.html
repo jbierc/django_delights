@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-      <h1>Django Delights</h1>
+    <div class="appname">
+      <h1>Django<br>Delights</h1>
       <h3>smart tool for your restaurant</h3>
       {% if user.username %}
-      <h2>Welcome {{ user.username }}</h2>
       {% endif %}
+    </div>
     </header>
     <main>
       {% if user.username %}
+      <h2>Welcome <b>{{ user.username }}</b></h2>
       <div id="menu">
         <a href="{% url 'ingredientlist' %}">Ingredients</a>
         <a href="{% url 'menuitemlist' %}">Menu Items</a>
