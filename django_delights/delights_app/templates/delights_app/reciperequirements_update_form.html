@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 <h4>Update Recipe Requirements</h4>
-<form method="post" class="tablelist">
+<form method="post">
 <div>
   {% csrf_token %}
   {{ form.as_p }}
-  <input type="submit" value="Submit" class="submit-button" id="submitrecipe"/>
-  <a href="{% url 'reciperequirementslist' %}"><input type="button" value="Go back" class="goback-button" id="submitrecipe"/></a>
+  <div class="buttonrow">
+    <button type="submit" value="Submit">Submit</button>
+    <a href="{% url 'reciperequirementslist' %}"><button type="button" value="Go back">Go back</button></a>
+  </div>
 </div>
 </form>
 {% endblock %}

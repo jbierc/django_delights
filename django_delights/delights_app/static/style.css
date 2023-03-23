@@ -23,8 +23,8 @@ body {
 header {
     display: flex; 
     flex-direction: column;
+    align-items: center;
     flex: 50%;
-    margin-bottom: 4vh;
 }
 
 main {
@@ -47,8 +47,12 @@ h1 {
     color: #119671;
     z-index: 2;
 }
+h1:hover {
+    cursor: pointer;
+}
 
 h2 {
+    margin-top: 2vh;
     margin-bottom: 2vh;
     white-space: nowrap;
     font-size: 2rem;
@@ -67,14 +71,53 @@ h3 {
 }
 
 h4 {
-    position: absolute;
-    top: 15vh;
-    left: 50vw;
-    transform: translateX(-50%);
-    white-space: nowrap;
+    margin-top: 15vh;
+    margin-bottom: 5vh;
+    text-align: center;
     font-size: 1.8rem;
     font-family: Arial, Helvetica, sans-serif;
     color: #119671;
+}
+
+select {
+    height: 8vh;
+    width: 100%;
+    padding: 2vw;
+    margin-bottom: 1vh;
+    font-size: 2rem;
+    border-color: #119671;
+    border-width: 0.3vh;
+    border-style: solid;
+    border-radius: 1vw;
+    color: rgb(37, 37, 37);
+}
+
+button {
+    padding: 2vw;
+    margin: 2vw;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 1vw;    
+    color: #ffffff;
+    background-color: #119671;
+}
+button:hover {
+    background: #0f7055;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+.buttonrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.gotomenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8vh;
 }
 
 a {
@@ -85,27 +128,31 @@ a {
 
 b {
     font-weight: bolder;
-}
-
-button:hover {
-    cursor: pointer;
+    color: #0e6e53;
 }
 
 /* FORM STYLES */
 form {
-    position: absolute;
-    top: 45vh;
-    left: 50vw;
-    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
     text-align: left;
-    height: 30vh;
+    margin-top: 8vh;
+    width: 75%;
+    font-family: Arial, Helvetica, sans-serif;
     z-index: 2;
 }
-
 form p {
-    margin-bottom: 1vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
-
+form p label {
+    text-align: left;
+    text-transform: lowercase;
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #119671;
+}
 form p input {
     height: 8vh;
     width: 75vw;
@@ -113,55 +160,41 @@ form p input {
     margin-bottom: 1vh;
     font-size: 2rem;
     border-color: #119671;
+    border-width: 0.3vh;
     border-style: solid;
     border-radius: 1vw;
+    color: rgb(37, 37, 37);
     background-color: rgb(255, 255, 255);
 }
 form p input:focus-visible {
     outline-color: #0d7255;
 }
 
-form p label {
-    right: 0vw;
-    margin: 20vw 0vw;
-    text-transform: lowercase;
-    font-size: 1.5rem;
-    font-family: Arial, Helvetica, sans-serif;
+form p span,li {
     color: #119671;
 }
-
-#id_username {
-    color: rgb(37, 37, 37);
+form p span,ul {
+    margin-bottom: 1vh;
 }
 
-/* LOGIN BUTTON */
-.login-button {
-    position: absolute;
-    top: 45vw;
-    right: 0vw;
-    padding: 2vw;
-    font-size: 1.4rem;
-    border: none;
-    border-radius: 1vw;    
-    color: #ffffff;
-    background-color: #119671;
-}
-.login-button:hover {
-    background-color: #0e6e53;
-    cursor: pointer;
+#accountform {
+    margin-top: 20vh;
 }
 
 /* TABLE STYLES */
 table {
     width: 100%;
     border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 td, th {
-    padding: 2vw;
+    padding: 1vw;
 }
 
 td {
+    text-align: left;
+    color: #119671;
     border: 0.2vw solid #adadad;
 }
 
@@ -173,29 +206,30 @@ th {
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #e7e7e78f;
 }
 tr:hover {
     background-color: #ddd;
 }
 /* EDIT, DELETE BUTTON STYLE */
 .edit {
+    padding: 0;
     background-color: #119671;
+}
+.edit button {
+    margin: 0;
+    padding: 3vh;
+    width: 100%;
+    border-radius: 0;
+    background-color: transparent;
 }
 .edit:hover {
     background-color: #0e6e53;
     cursor: pointer;
 }
-.edit button {
-    padding: 2vw;
-    font-size: 1.2rem;
-    border: none;  
-    color: #ffffff;
-    background: none;
-}
 
 /* HAMBURGER ICON */
-#hamnav {
+nav {
     position: fixed;
     top: 0;
     width: 100%;
@@ -204,7 +238,7 @@ tr:hover {
     z-index: 3;
 }
 
-#hamnav label {
+nav label {
     text-align: right;
     padding: 2vw 4vw;
     font-size: 3rem;
@@ -212,21 +246,21 @@ tr:hover {
     color: white;
     background-color: #119671;
 }
-#hamnav label:hover {
+nav label:hover {
     color: #0f7055;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
 }
-#hamnav label:focus {
+nav label:focus {
     opacity: 0.5;
     transition: all 0.2s ease-in-out;
 }
-#hamnav input {
+nav input {
     display: none;
 }
 
 /* VERTICAL HAMBURGER MENU */
-#hamitems > a {
+.navitems a {
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
@@ -234,27 +268,27 @@ tr:hover {
     background: #119671;
     padding: 2vw 4vw;
 }
-#hamitems a:hover {
+.navitems a:hover {
     background-color: #0e6e53;
     cursor: pointer;
 }
 
 /* HIDE MENU ITEMS */
-#hamitems { display: none; }
+.navitems { display: none; }
 
 /* TOGGLE SHOW HIDE */
-#hamnav input:checked ~ #hamitems {
+nav input:checked ~ .navitems {
     display: flex;
     flex-direction: column;
     text-align: right;
 }
 
 /* MENU BUTTON OPTIONS */
-#menu {
+.menu {
     display: flex;
     flex-direction: column;
 }
-#menu a {
+.menu a {
     font-size: 1.6rem;
     text-align: center;
     border: none;
@@ -265,104 +299,17 @@ tr:hover {
     background-color: #119671;
 }
 
-/* TABLE LISTS */
-.tablelist {
-    position: absolute;
-    top: 30vh;
-    font-family: Arial, Helvetica, sans-serif;
-}
-#signupform {
-    top: 20vh;
-}
-
-.btn {
-    position: absolute;
-    top: 40vw;
-    right: 0vw;
-    padding: 2vw;
-    margin: 2vw;
-    font-size: 1.4rem;
-    border: none;
-    border-radius: 1vw;    
-    color: #ffffff;
-    background-color: #119671;
-}
-.btn:hover {
-    background: #0f7055;
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
-}
-
-#additem {
-    right: 22vw;
-}
-
-.submit-button {
-    position: absolute;
-    top: 78vw;
-    right: 23vw;
-    padding: 2vw;
-    font-size: 1.4rem;
-    border: none;
-    border-radius: 1vw;
-    color: #ffffff;
-    background-color: #119671;
-}
-.submit-button:hover {
-    background-color: #0f7055;
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
-}
-#submitmenu {
-    top: 26vh;
-}
-#submitpurchase {
-    top: 20vh;
-}
-#submitrecipe {
-    top: 22vh;
-}
-#signup {
-    top: 58vh;
-}
-#gotomenu {
-    top: 55vh;
-    left: 50vw;
-    transform: translateX(-50%);
-}
-
-.goback-button {
-    position: absolute;
-    top: 78vw;
-    right: 0vw;
-    padding: 2vw;
-    font-size: 1.4rem;
-    border: none;
-    border-radius: 1vw;    
-    color: #ffffff;
-    background-color: #119671;
-}
-.goback-button:hover {
-    background-color: #0f7055;
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
-}
-
-.del-question {
-    font-size: 1.8rem;
-    color: #119671;
-}
-#del {
-    top: 25vh;
+.menu a:hover {
+    background-color: #0e6e53;
 }
 
 /* MEDIA QUERIES */
 @media (orientation: landscape) {
-    body {
-        height: 0vh;
-    }
     main {
         flex: 60%;
+    }
+    nav label {
+        padding: 2vh 4vh;
     }
     .appname {
         margin-top: 15vw;
@@ -371,15 +318,52 @@ tr:hover {
         line-height: 9vw;
     }
     h2 {
-        margin-bottom: 4vh;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
     }
     h3 {
         margin-top: 1.5vw;
     }
-    #hamnav label {
+    h4 {
+        margin-top: 15vw;
+        margin-bottom: 5vw;
+    }
+    select {
+        height: 8vw;
+        padding: 2vh;
+        margin-bottom: 1vw;
+        border-width: 0.3vw;
+        border-radius: 1vh;
+    }
+    button {
+        padding: 2vh;
+        margin: 2vh;
+        border-radius: 1vh;
+    }
+    .gotomenu {
+        margin-top: 8vw;
+    }
+    form {
+        margin-top: 8vw;
+    }
+    form p input {
+        height: 8vw;
+        padding: 4vh;
+        margin-bottom: 1vw;
+    }
+    form p span,ul {
+        margin-bottom: 1vw;
+    }
+    #accountform {
+        margin-top: 20vw;
+    }
+    nav label {
         padding: 2vh 4vh;
     }
-    #menu a {
+    .navitems a {
+        padding: 2vh 4vh;
+    }
+    .menu a {
         border-radius: 1vh;
         padding: 4vh 2vw;
         margin: 0vw 6vh 2vw 6vh;
@@ -397,7 +381,16 @@ tr:hover {
     h3 {
         font-size: 1.2rem;
     }
-    #menu a {
+    h4 {
+        font-size: 2.2rem;
+    }
+    button {
+        font-size: 1.8rem;
+    }
+    table {
+        font-size: 1.6rem;
+    }
+    .menu a {
         font-size: 1.8rem;
         margin: 0vh 8vw 2vh 8vw;
     }    
@@ -417,16 +410,16 @@ tr:hover {
     h3 {
         font-size: 1.4rem;
     }
-    #menu {
+    .menu {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
     }
-    #menu a {
+    .menu a {
         font-size: 2.2rem;
         margin: 0;
     }
-    #hamitems > a {
+    .navitems a {
         font-size: 2rem;
     }    
 }

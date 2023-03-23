@@ -9,11 +9,11 @@
   <body>
     <header>
       <!-- HAMBURGER MENU -->
-      <nav id="hamnav">
+      <nav>
         <label for="hamburger">&#9776;</label>
         <input type="checkbox" id="hamburger">
         <!-- MENU ITEMS -->
-        <div id="hamitems">
+        <div class="navitems">
           {% if user.username %}
           <a href="{% url 'passwordchange' %}">Password Change</a>
           <a href="{% url 'logout' %}">Logout</a>

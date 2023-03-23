@@ -1,15 +1,23 @@
 {% extends "home.html" %}
 
 {% block content %}
-<h1>Django Delights</h1>
-<h3>smart tool for your restaurant</h3>
+<div class="appname">
+    <h1>Django Delights</h1>
+    <h3>smart tool for your restaurant</h3>
+</div>
 {% if not user.username %}
 <form method="POST">
-{% csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="Login" class="login-button">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <div class="buttonrow">
+    <button type="submit" value="Login">Login</button>
+  </div>
 </form>
+{% else %}
+<div class="gotomenu">
+    <h2>Welcome <b>{{ user.username }}</b></h2>
+    <a href="{% url 'home' %}"><button type="button" value="Go to Menu">Go to menu</button></a>
+</div>
 {% endif %}
-<h2>Welcome {{ user.username }}</h2>
-<a href="{% url 'home' %}"><input type="button" value="Go to Menu" class="login-button" id="gotomenu"></a>
+
 {% endblock %}

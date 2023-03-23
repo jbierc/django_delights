@@ -5,8 +5,10 @@
 <div>
   {% csrf_token %}
   {{ form.as_p }}
-  <input type="submit" value="Submit" class="submit-button" id="submitmenu"/>
-  <a href="{% url 'menuitemlist' %}"><input type="button" value="Go back" class="goback-button" id="submitmenu"/></a>
+  <div class="buttonrow">
+    <button type="submit" value="Submit">Submit</button>
+    <a href="{% url 'menuitemlist' %}"><button type="button" value="Go back">Go back</button></a>
+  </div>
 </div>
 </form>
 {% endblock %}

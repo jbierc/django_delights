@@ -5,9 +5,11 @@
 
 {% block content %}
 <h4>Menu Items</h4>
-<a href="{% url 'menuitemcreate' %}"><button class="btn" id="additem">Add Menu Item</button></a>
-<a href="{% url 'home' %}"><input type="button" value="Go back" class="btn"/></a>
-<table id="menuitem" class="tablelist">
+<div class="buttonrow">
+    <a href="{% url 'menuitemcreate' %}"><button type="button" value="Add menu item">Add menu item</button></a>
+    <a href="{% url 'home' %}"><button type="button" value="Go back">Go back</button></a>
+</div>
+<table>
     <tr>
         <th>Name</th>
         <th>Price</th>

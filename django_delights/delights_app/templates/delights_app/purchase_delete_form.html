@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 <h4>Delete Purchase</h4>
-<form method="post" class="tablelist">
+<form method="post">
 <div>
   {% csrf_token %}
-  <p class="del-question">Are you sure you want to delete "{{ object }}"?</p>
-  <input type="submit" value="Confirm" class="submit-button" id="del"/>
-  <a href="{% url 'purchaselist' %}"><input type="button" value="Go back" class="goback-button" id="del"/></a>
+  <h4>Are you sure you want to delete "{{ object }}"?</h4>
+  <div class="buttonrow">
+    <button type="submit" value="Confirm">Confirm</button>
+    <a href="{% url 'purchaselist' %}"><button type="button" value="Go back">Go back</button></a>
+  </div>
 </div>
 </form>
 {% endblock %}

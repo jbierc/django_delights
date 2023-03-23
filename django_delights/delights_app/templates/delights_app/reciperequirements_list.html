@@ -5,9 +5,11 @@
 
 {% block content %}
 <h4>Recipe Requirements</h4>
-<a href="{% url 'reciperequirementscreate' %}"><button class="btn" id="additem">Add Recipe Requirements</button></a>
-<a href="{% url 'home' %}"><input type="button" value="Go back" class="btn"/></a>
-<table id="reciperequirements" class="tablelist">
+<div class="buttonrow">
+    <a href="{% url 'reciperequirementscreate' %}"><button type="button" value="Add Recipe Requirements">Add Recipe Requirements</button></a>
+    <a href="{% url 'home' %}"><button type="button" value="Go back">Go back</button></a>
+</div>
+<table>
     <tr>
         <th>Menu Item</th>
         <th>Ingredient</th>

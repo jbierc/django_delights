@@ -5,8 +5,10 @@
 
 {% block content %}
 <h4>Purchase List</h4>
-<a href="{% url 'home' %}"><input type="button" value="Go back" class="btn"/></a>
-<table id="purchase" class="tablelist">
+<div class="buttonrow">
+    <a href="{% url 'home' %}"><button type="button" value="Go back">Go back</button></a>
+</div>
+<table id="purchase">
     <tr>
         <th>Menu Item</th>
         <th>Timestamp</th>
