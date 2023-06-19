@@ -6,12 +6,14 @@ It will help you manage your restaurant's menu and count costs you need to know.
 ## Setup
 
 * Clone the repository:
+
 ```
 $ git clone <https://github.com/jbierc/django_delights.git>
 $ cd django_delights
 ```
 
 * Create and activate virtual environment:
+
 ```
 $ python -m venv env (windows)
 $ python3 -m venv env (linux and os x)
