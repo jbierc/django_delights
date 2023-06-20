@@ -7,9 +7,9 @@ It will help you manage your restaurant's menu and count costs you need to know.
 
 * Clone the repository:
 
-```bash
-git clone https://github.com/jbierc/django_delights.git
-cd django_delights
+```text
+$ git clone https://github.com/jbierc/django_delights.git
+$ cd django_delights
 ```
 
 * Create and activate virtual environment:
