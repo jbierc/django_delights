@@ -11,6 +11,7 @@
   {{ form.as_p }}
   <div class="buttonrow">
     <button type="submit" value="Login">Login</button>
+    <button onclick="location.href='{% url 'signup' %}'" type="button">Sign Up</button>
   </div>
 </form>
 {% else %}
