@@ -14,23 +14,23 @@ cd django_delights
 
 * Create and activate virtual environment:
 
-```bash
-python -m venv env (windows)
-python3 -m venv env (linux and os x)
+```text
+$ python -m venv env (windows)
+$ python3 -m venv env (linux and os x)
 
-env\Scripts\activate (windows)
-source env/bin/activate (linux and os x)
+$ env\Scripts\activate (windows)
+$ source env/bin/activate (linux and os x)
 ```
 
 * Install dependencies:
 
-```bash
-(env)pip install -r requirements.txt
+```text
+(env)$ pip install -r requirements.txt
 ```
 
 * Run app:
 
-```bash
+```text
 (env)$ python manage.py runserver (windows)
 (env)$ python3 manage.py runserver (linux and os x)
 ```
