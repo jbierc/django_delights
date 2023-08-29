@@ -108,7 +108,7 @@ def PurchaseCreate(request, pk=0):
         requirements.ingredient.quantity -= requirements.quantity
       else:
         #adding number of needed ingr. units to restock
-        restock.append(requirements.ingredient.name + ' ' + str(requirements.quantity - requirements.ingredient.quantity) + requirements.ingredient.unit)
+        restock.append(requirements.ingredient.name + ' ' + str(requirements.quantity - requirements.ingredient.quantity) + ' ' + requirements.ingredient.unit)
     #alerting if not enough ingr.    
     if restock:
       messages.warning(request, f'Not enough {", ".join(restock)}')

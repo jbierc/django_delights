@@ -1,8 +1,6 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-from django.shortcuts import redirect
 from django.utils import timezone
-from delights_app.views import PurchaseCreate
 from delights_app.models import *
 from datetime import datetime
 from django.contrib.messages import get_messages
@@ -28,7 +26,7 @@ class PurchaseCreateViewTest(TestCase):
 
     def test_successful_purchase_creation(self):
         response = self.client.post(self.url, data=self.valid_post_data, follow=True)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200) # Should successfully render template
         self.assertRedirects(response, reverse('menuitemlist'))
         # Check if a purchase was created
         self.assertTrue(Purchase.objects.filter(menu_item=self.menu_item).exists())
@@ -44,7 +42,7 @@ class PurchaseCreateViewTest(TestCase):
 
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(len(messages), 1)
-        self.assertIn('Not enough Test Ingredient 3 grams', str(messages[0]))
+        self.assertIn('Not enough Test Ingredient 3.0 grams', str(messages[0]))
 
         # Check if a purchase was not created
         self.assertFalse(Purchase.objects.filter(menu_item=self.menu_item).exists())
