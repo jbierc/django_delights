@@ -18,9 +18,9 @@ class PurchaseCreateViewTest(TestCase):
         self.menu_item = MenuItem.objects.create(name='Test Menu Item')
         self.requirement = RecipeRequirements.objects.create(menu_item=self.menu_item, ingredient=self.ingredient, quantity=5)
         #setting url
-        self.url = reverse('purchasecreate', kwargs={'pk': self.menu_item.id})
+        self.url = reverse('purchasecreate', kwargs={'pk': self.menu_item.id}) # type: ignore
         self.valid_post_data = {
-            'menu_item': self.menu_item.id,
+            'menu_item': self.menu_item.id, # type: ignore
             'timestamp': datetime.now(tz=timezone.utc)
         }
 
