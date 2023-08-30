@@ -28,3 +28,8 @@ class TestUrls(SimpleTestCase):
        response = self.client.get(url)
        self.assertEquals(resolve(url).func.view_class, PasswordChange)
        self.assertTemplateUsed(response, 'registration/password_change.html')
+
+    def test_summary_url_is_resolved(self):
+       url = reverse('summary')
+       self.assertEquals(resolve(url).func, Summary)
+       self.assertTemplateUsed('summary.html')
