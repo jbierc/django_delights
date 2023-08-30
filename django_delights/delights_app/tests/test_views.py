@@ -46,3 +46,27 @@ class PurchaseCreateViewTest(TestCase):
 
         # Check if a purchase was not created
         self.assertFalse(Purchase.objects.filter(menu_item=self.menu_item).exists())
+
+class SummaryViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(username='jbierc', password='adminadmin123')
+        self.client.login(username='jbierc', password='adminadmin123')
+        self.url = reverse('summary')
+        self.menu_item = MenuItem.objects.create(name='Test Item', price=10)
+        self.ingredient = Ingredient.objects.create(name='Test Ingredient', unit_price=5)
+        self.requirement = RecipeRequirements.objects.create(menu_item=self.menu_item, ingredient=self.ingredient, quantity=2)
+        self.purchase = Purchase.objects.create(menu_item=self.menu_item, timestamp=datetime.now(tz=timezone.utc))
+
+    def test_summary_calculation(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+
+        # Calculate expected revenue and cost based on the created objects
+        revenue = self.purchase.menu_item.price
+        cost = self.requirement.ingredient.unit_price * self.requirement.quantity
+        profit = revenue - cost
+
+        self.assertContains(response, f'{revenue}')
+        self.assertContains(response, f'{cost}')
+        self.assertContains(response, f'{profit}')
