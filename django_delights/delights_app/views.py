@@ -1,11 +1,7 @@
-from email import message
-from re import template
-from urllib import request
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.http import HttpResponse
 from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
@@ -108,11 +104,11 @@ def PurchaseCreate(request, pk=0):
         requirements.ingredient.quantity -= requirements.quantity
       else:
         #adding number of needed ingr. units to restock
-        restock.append(requirements.ingredient.name + ' ' + str(requirements.quantity - requirements.ingredient.quantity) + requirements.ingredient.unit)
+        restock.append(requirements.ingredient.name + ' ' + str(requirements.quantity - requirements.ingredient.quantity) + ' ' + requirements.ingredient.unit)
     #alerting if not enough ingr.    
     if restock:
       messages.warning(request, f'Not enough {", ".join(restock)}')
-      return redirect('ingredientlist') #HttpResponse(f'Not enough {", ".join(restock)}')
+      return redirect('ingredientlist')
     else:
       for requirements in all_requirements:
         requirements.ingredient.save()
