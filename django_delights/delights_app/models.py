@@ -1,7 +1,7 @@
-from datetime import datetime
 from pickle import TRUE
 from tkinter import CASCADE
 from django.db import models
+from django.utils import timezone
 
 class Ingredient(models.Model):
     TEASPOON = "tsp"
@@ -41,7 +41,7 @@ class RecipeRequirements(models.Model):
 
 class Purchase(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
-    timestamp = models.DateTimeField(default=datetime.now)
+    timestamp = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return f'{self.menu_item} {self.timestamp}'
