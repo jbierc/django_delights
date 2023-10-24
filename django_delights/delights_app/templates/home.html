@@ -9,9 +9,9 @@
     </header>
     <main>
       {% if user.username %}
-      <h2>Welcome <b>{{ user.username }}</b></h2>
+      <h2>Welcome {{ user.username }}</h2>
       <div class="menu">
-        <a href="{% url 'ingredientlist' %}">Ingredients</a>
+        <a href="{% url 'ingredientlist' %}" id="ingredients">Ingredients</a>
         <a href="{% url 'menuitemlist' %}">Menu Items</a>
         <a href="{% url 'reciperequirementslist' %}">Recipe Requirements</a>
         <a href="{% url 'purchaselist' %}">Purchase List</a>

@@ -10,7 +10,7 @@
   {% csrf_token %}
   {{ form.as_p }}
   <div class="buttonrow">
-    <button type="submit" value="Login">Login</button>
+    <button type="submit" value="Login" id="login_button">Login</button>
     <button onclick="location.href='{% url 'signup' %}'" type="button">Sign Up</button>
   </div>
 </form>
